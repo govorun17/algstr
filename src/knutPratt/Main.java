@@ -47,14 +47,13 @@ public class Main {
 			j = pair.getValue();
 			if (j == pattern.length()) {
 				matches.add(i - pattern.length());
-				i -= p[j] - 1;
-				j -= p[j];
+				j = p[j] - 1;
 			}
 			else if (j == 0) {
 				i++;
 			}
 			else {
-				j = pref[j-1];
+				j = p[j] - 1;
 			}
 
 		}
@@ -88,12 +87,17 @@ public class Main {
 	}
 
 	private static Pair<Integer, Integer> match(String str, String pattern, int i, int j) {
-		while (i < str.length() && j < pattern.length() && str.charAt(i) == pattern.charAt(j)) {
-			compares++;
-			j++;
-			i++;
+		while (i < str.length() && j < pattern.length()) {
+			if(str.charAt(i) == pattern.charAt(j)) {
+				compares++;
+				j++;
+				i++;
+			}
+			else {
+				compares++;
+				break;
+			}
 		}
-		compares++;
 		return new Pair<>(i, j);
 	}
 }
