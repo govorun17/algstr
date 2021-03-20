@@ -3,16 +3,33 @@ package rbinKarp;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
-	public static void main(String[] args) {
+	private static final Integer compares = 0;
 
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+
+		System.out.print("Enter str: ");
+		String str = scanner.nextLine();
+
+		System.out.print("Enter pattern: ");
+		String pattern = scanner.nextLine();
+
+		StringBuilder res = new StringBuilder();
+		for(Integer c : GetPatternEntries(str, pattern)) {
+			res.append(c).append(" ");
+		}
+
+		System.out.println("Positions: " + res.toString());
+		System.out.println("Compares count: " + compares);
 	}
 
 	private static final int basement = 59;
 	private static final int divider = 433494437;
 
-	public List<Integer> GetPatternEntries(String text, String pattern) {
+	public static List<Integer> GetPatternEntries(String text, String pattern) {
 		List<Integer> result = new ArrayList<>();
 		int textLength = text.length();
 		int patternLength = pattern.length();
