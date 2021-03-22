@@ -49,9 +49,10 @@ public class Main {
 				boolean match = true;
 				for(int j = 0; j < patternLength; ++j) {
 					if(text.charAt(i + j) != pattern.charAt(j)) {
-						compares++;
 						match = false;
 						break;
+					} else {
+						compares++;
 					}
 				}
 				if(match) {
