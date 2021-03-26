@@ -88,12 +88,11 @@ public class Main {
 
 	private static Pair<Integer, Integer> match(String str, String pattern, int i, int j) {
 		while (i < str.length() && j < pattern.length()) {
-			if(str.charAt(i) == pattern.charAt(j)) {
+			if (str.charAt(i) == pattern.charAt(j)) {
 				compares++;
 				j++;
 				i++;
-			}
-			else {
+			} else {
 				compares++;
 				break;
 			}
