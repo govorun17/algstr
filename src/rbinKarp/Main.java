@@ -35,14 +35,16 @@ public class Main {
 		int patternLength = pattern.length();
 		int hashText = text.charAt(0) % divider;
 		int hashPattern = pattern.charAt(0) % divider;
-		int multiplier = 1;
+		int multiplier = 0;
 		int i = 1;
 
 		for(; i < patternLength; ++i) {
 			hashText = (hashText * basement + text.charAt(i)) % divider;
 			hashPattern = (hashPattern * basement + pattern.charAt(i)) % divider;
-			multiplier = (multiplier * basement) % divider;
+			multiplier = basement % divider;
 		}
+
+		System.out.println(hashText + " " + hashPattern + " " + divider);
 
 		for(i = 0; i < textLength - patternLength; ++i) {
 			if(hashText == hashPattern) {
